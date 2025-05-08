@@ -40,9 +40,9 @@ while counter < 1000:
     team_stats = [
         dict(name="GT", matches=11, wins=8, losses=3, nrr=0.793, points=16),
         dict(name="RCB", matches=11, wins=8, losses=3, nrr=0.482, points=16),
-        dict(name="PBKS", matches=11, wins=7, losses=3, nrr=0.376, points=15),
+        dict(name="PBKS", matches=12, wins=7, losses=3, nrr=0.376, points=16),
         dict(name="MI", matches=12, wins=7, losses=5, nrr=1.156, points=14),
-        dict(name="DC", matches=11, wins=6, losses=4, nrr=0.362, points=13),
+        dict(name="DC", matches=12, wins=6, losses=4, nrr=0.362, points=14),
         dict(name="KKR", matches=12, wins=5, losses=6, nrr=0.193, points=11),
         dict(name="LSG", matches=11, wins=5, losses=6, nrr=-0.469, points=10),
         dict(name="SRH", matches=11, wins=3, losses=7, nrr=-1.192, points=7),
@@ -51,7 +51,6 @@ while counter < 1000:
     ]
 
     remaining_matches = [
-        ("PBKS", "DC"),
         ("LSG", "RCB"),
         ("SRH", "KKR"),
         ("PBKS", "MI"),
@@ -71,7 +70,7 @@ while counter < 1000:
         simulate_match(team1, team2, team_stats)
 
     # Sort by points then NRR
-    team_stats_sorted = sorted(team_stats, key=lambda x: (x["points"], x["nrr"]))
+    team_stats_sorted = sorted(team_stats, key=lambda x: (x["points"], x["wins"], x["nrr"]))
 
 # Print final standings
 # for team in reversed(team_stats_sorted):
@@ -99,5 +98,5 @@ for i in range(0, len(overall_team_score) - 1):
 
 for i in range(len(overall_team_score) - 1, -1, -1):
     team = team_stats[i]
-    print(f'{team["name"]} Total Standing: {overall_team_score[i]}')
+    print(f'{team["name"]} Average Standing: {overall_team_score[i]/1000}')
 
