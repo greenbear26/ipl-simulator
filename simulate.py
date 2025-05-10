@@ -40,9 +40,9 @@ while counter < 1000:
     team_stats = [
         dict(name="GT", matches=11, wins=8, losses=3, nrr=0.793, points=16),
         dict(name="RCB", matches=11, wins=8, losses=3, nrr=0.482, points=16),
-        dict(name="PBKS", matches=12, wins=7, losses=3, nrr=0.376, points=16),
+        dict(name="PBKS", matches=11, wins=7, losses=3, nrr=0.376, points=15),
         dict(name="MI", matches=12, wins=7, losses=5, nrr=1.156, points=14),
-        dict(name="DC", matches=12, wins=6, losses=4, nrr=0.362, points=14),
+        dict(name="DC", matches=11, wins=6, losses=4, nrr=0.362, points=13),
         dict(name="KKR", matches=12, wins=5, losses=6, nrr=0.193, points=11),
         dict(name="LSG", matches=11, wins=5, losses=6, nrr=-0.469, points=10),
         dict(name="SRH", matches=11, wins=3, losses=7, nrr=-1.192, points=7),
@@ -51,6 +51,7 @@ while counter < 1000:
     ]
 
     remaining_matches = [
+        ("PBKS", "DC"),
         ("LSG", "RCB"),
         ("SRH", "KKR"),
         ("PBKS", "MI"),
