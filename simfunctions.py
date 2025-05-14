@@ -1,19 +1,7 @@
 import numpy as np
 
 STANDARD_DEVIATION = 1
-TEAM_STATS = [
-    dict(name="GT", matches=11, wins=8, losses=3, nrr=0.793, points=16),
-    dict(name="RCB", matches=11, wins=8, losses=3, nrr=0.482, points=16),
-    dict(name="PBKS", matches=11, wins=7, losses=3, nrr=0.376, points=15),
-    dict(name="MI", matches=12, wins=7, losses=5, nrr=1.156, points=14),
-    dict(name="DC", matches=11, wins=6, losses=4, nrr=0.362, points=13),
-    dict(name="KKR", matches=12, wins=5, losses=6, nrr=0.193, points=11),
-    dict(name="LSG", matches=11, wins=5, losses=6, nrr=-0.469, points=10),
-    dict(name="SRH", matches=11, wins=3, losses=7, nrr=-1.192, points=7),
-    dict(name="RR", matches=12, wins=3, losses=9, nrr=-0.718, points=6),
-    dict(name="CSK", matches=12, wins=3, losses=9, nrr=-0.992, points=6)
-]
-REMAINING_MATCHES = [
+REMAINING_MATCHES = (
     ("PBKS", "DC"),
     ("LSG", "RCB"),
     ("SRH", "KKR"),
@@ -27,7 +15,7 @@ REMAINING_MATCHES = [
     ("RCB", "KKR"),
     ("GT", "CSK"),
     ("LSG", "SRH")
-]
+)
 
 def find_team_index(team_name, team_stats):
     return next(i for i, team in enumerate(team_stats) if team["name"] == team_name)
@@ -59,18 +47,31 @@ def simulate_match(team1_name, team2_name, team_stats):
     t2["nrr"] -= nrr_diff / t2["matches"]
 
 def get_team_stats():
-    return TEAM_STATS.copy()
+    TEAM_STATS = [
+        dict(name="GT", matches=11, wins=8, losses=3, nrr=0.793, points=16),
+        dict(name="RCB", matches=11, wins=8, losses=3, nrr=0.482, points=16),
+        dict(name="PBKS", matches=11, wins=7, losses=3, nrr=0.376, points=15),
+        dict(name="MI", matches=12, wins=7, losses=5, nrr=1.156, points=14),
+        dict(name="DC", matches=11, wins=6, losses=4, nrr=0.362, points=13),
+        dict(name="KKR", matches=12, wins=5, losses=6, nrr=0.193, points=11),
+        dict(name="LSG", matches=11, wins=5, losses=6, nrr=-0.469, points=10),
+        dict(name="SRH", matches=11, wins=3, losses=7, nrr=-1.192, points=7),
+        dict(name="RR", matches=12, wins=3, losses=9, nrr=-0.718, points=6),
+        dict(name="CSK", matches=12, wins=3, losses=9, nrr=-0.992, points=6)
+    ]
+    return TEAM_STATS
 
 def get_remaining_matches():
-    return REMAINING_MATCHES.copy()
+    return REMAINING_MATCHES
 
 def simulate_season():
+    team_stats = get_team_stats()
     # Simulate all matches
     for team1, team2 in get_remaining_matches():
-        simulate_match(team1, team2, get_team_stats())
+        simulate_match(team1, team2, team_stats)
 
     # Sort by points then NRR
-    team_stats_sorted = sorted(get_team_stats(), key=lambda x: (x["points"], x["wins"], x["nrr"]))
+    team_stats_sorted = sorted(team_stats, key=lambda x: (x["points"], x["wins"], x["nrr"]))
 
     return team_stats_sorted
 
