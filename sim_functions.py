@@ -1,21 +1,8 @@
+import schedule_parse
 import numpy as np
 
 STANDARD_DEVIATION = 1
-REMAINING_MATCHES = (
-    ("PBKS", "DC"),
-    ("LSG", "RCB"),
-    ("SRH", "KKR"),
-    ("PBKS", "MI"),
-    ("DC", "GT"),
-    ("CSK", "RR"),
-    ("RCB", "SRH"),
-    ("GT", "LSG"),
-    ("MI", "DC"),
-    ("RR", "PBKS"),
-    ("RCB", "KKR"),
-    ("GT", "CSK"),
-    ("LSG", "SRH")
-)
+REMAINING_SCHEDULE = schedule_parse.get_remaining_schedule()
 
 def find_team_index(team_name, team_stats):
     return next(i for i, team in enumerate(team_stats) if team["name"] == team_name)
@@ -61,13 +48,11 @@ def get_team_stats():
     ]
     return TEAM_STATS
 
-def get_remaining_matches():
-    return REMAINING_MATCHES
-
 def simulate_season():
     team_stats = get_team_stats()
     # Simulate all matches
-    for team1, team2 in get_remaining_matches():
+    for team1, team2 in REMAINING_SCHEDULE:
+        # print(f"Team 1: {team1} Team 2: {team2}")
         simulate_match(team1, team2, team_stats)
 
     # Sort by points then NRR
