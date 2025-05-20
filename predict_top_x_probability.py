@@ -1,7 +1,7 @@
 import sim_functions
 import sys
 
-simulations = 1000
+simulations = 100000
 
 team = sys.argv[1] if len(sys.argv) > 1 else input("Which team? ")
 if (any(team == teams["name"] for teams in sim_functions.get_team_stats())):
@@ -28,5 +28,5 @@ while counter < simulations:
     counter += 1
 
 # Print final results
-print(f"{team} made the top {x} {playoffs_made} out of {simulations} times, for a probability of {playoffs_made / simulations}")
+print(f"{team} made the top {x} {playoffs_made} out of {simulations} times, for a probability of {playoffs_made / simulations * 100} %")
 print("If you would like a different amount of top teams, input a different number as the second argument")

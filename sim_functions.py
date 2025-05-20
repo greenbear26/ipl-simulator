@@ -41,8 +41,8 @@ def get_team_stats():
         dict(name="MI", matches=12, wins=7, losses=5, nrr=1.156, points=14),
         dict(name="DC", matches=12, wins=6, losses=5, nrr=0.260, points=13),
         dict(name="KKR", matches=13, wins=5, losses=6, nrr=0.193, points=12),
-        dict(name="LSG", matches=11, wins=5, losses=6, nrr=-0.469, points=10),
-        dict(name="SRH", matches=11, wins=3, losses=7, nrr=-1.192, points=7),
+        dict(name="LSG", matches=12, wins=5, losses=7, nrr=-0.506, points=10),
+        dict(name="SRH", matches=12, wins=4, losses=7, nrr=-1.005, points=9),
         dict(name="RR", matches=13, wins=3, losses=10, nrr=-0.701, points=6),
         dict(name="CSK", matches=12, wins=3, losses=9, nrr=-0.992, points=6)
     ]
