@@ -21,12 +21,12 @@ while counter < simulations:
     team_stats_sorted = sim_functions.simulate_season()
 
     # Printing playoff teams
-    print([teams["name"] for teams in team_stats_sorted[10-x:10]])
+    # print([teams["name"] for teams in team_stats_sorted[10-x:10]])
 
     if any(team == teams["name"] for teams in team_stats_sorted[10-x:10]):
         playoffs_made += 1
     counter += 1
 
 # Print final results
-print(f"{team} made the top {x} {playoffs_made} out of {simulations} times, for a probability of {playoffs_made / simulations * 100} %")
+print(f"{team} made the top {x} {playoffs_made} out of {simulations} times, for a probability of {playoffs_made / simulations * 100:.3f} %")
 print("If you would like a different amount of top teams, input a different number as the second argument")
