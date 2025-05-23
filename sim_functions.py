@@ -35,13 +35,13 @@ def simulate_match(team1_name, team2_name, team_stats):
 
 def get_team_stats():
     TEAM_STATS = [
-        dict(name="GT", matches=12, wins=9, losses=3, nrr=0.795, points=18),
+        dict(name="GT", matches=13, wins=9, losses=4, nrr=0.602, points=18),
         dict(name="RCB", matches=12, wins=8, losses=3, nrr=0.482, points=17),
         dict(name="PBKS", matches=12, wins=8, losses=3, nrr=0.389, points=17),
         dict(name="MI", matches=13, wins=8, losses=5, nrr=1.292, points=16),
         dict(name="DC", matches=13, wins=6, losses=6, nrr=-0.019, points=13),
+        dict(name="LSG", matches=13, wins=6, losses=7, nrr=-0.337, points=12),
         dict(name="KKR", matches=13, wins=5, losses=6, nrr=0.193, points=12),
-        dict(name="LSG", matches=12, wins=5, losses=7, nrr=-0.506, points=10),
         dict(name="SRH", matches=12, wins=4, losses=7, nrr=-1.005, points=9),
         dict(name="RR", matches=14, wins=3, losses=10, nrr=-0.549, points=8),
         dict(name="CSK", matches=13, wins=3, losses=10, nrr=-1.030, points=6)
