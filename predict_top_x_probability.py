@@ -1,6 +1,8 @@
 import sim_functions
 import sys
 
+print(f"Remaining matches: {sim_functions.REMAINING_SCHEDULE}")
+
 simulations = 100000
 
 team = sys.argv[1] if len(sys.argv) > 1 else input("Which team? ")

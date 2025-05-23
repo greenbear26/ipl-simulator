@@ -32,5 +32,5 @@ def get_remaining_schedule():
                 if row[4] in team_names and row[5] in team_names:
                     remaining_schedule.append((team_names[row[4]],
                                                team_names[row[5]]))
-    print(remaining_schedule)
+    # print(remaining_schedule)
     return remaining_schedule

@@ -1,6 +1,8 @@
 import sim_functions
 import sys
 
+print(f"Remaining matches: {sim_functions.REMAINING_SCHEDULE}")
+
 simulations = int(
     sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1].isdigit() else int(
         input("How many simulations? "))
